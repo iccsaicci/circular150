@@ -84,7 +84,7 @@
       
         <!-- Specify the initial condition -->
         <FUNCTION NAME="InitialConditions">
-        <F VAR="u,v,w,p" FILE="" />   
+        <F VAR="u,v,w,p" FILE="circular_15.rst" />   
         </FUNCTION>
     </CONDITIONS>
     
