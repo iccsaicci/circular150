@@ -2,16 +2,17 @@
 <NEKTAR>
     <Metadata>
         <Provenance>
-            <GitBranch></GitBranch>
-            <GitSHA1>f286f809cfeb26cb73828c90a689a048898971d2</GitSHA1>
-            <Hostname>euston</Hostname>
+            <GitBranch>refs/heads/master</GitBranch>
+            <GitSHA1>76f512d0945eacdb710e762e6f1499728a1fe5e0</GitSHA1>
+            <Hostname>marylebone</Hostname>
             <NektarVersion>5.3.0</NektarVersion>
-            <Timestamp>14-Jul-2023 11:06:39</Timestamp>
+            <Timestamp>17-Jul-2023 17:09:13</Timestamp>
         </Provenance>
-        <ChkFileNum>16</ChkFileNum>
-        <Kinvis>0.0066666666666666671</Kinvis>
+        <ChkFileNum>31</ChkFileNum>
+        <Kinvis>0.0062893081761006293</Kinvis>
         <SessionName0>circular_xml/P0000000.xml</SessionName0>
-        <Time>14.999999999997126</Time>
+        <SessionName1>circular_xml/P0000000.xml</SessionName1>
+        <Time>30.000000000013682</Time>
         <TimeStep>0.001</TimeStep>
     </Metadata>
     <Partition FileName="P0000000.fld">2330-2339,2970-2979,3120-3129,3350-3359,3470-3479,3510-3519,3570-3579,3630-3639,3680-3689,3720-3739,3760-3769,3880-3889,3960-3969,4020-4029,4120-4122,4150-4159,4220-4222,4280-4289,4360-4369,4470-4479,4490-4499,6630-6639,6680-6689,6700-6709,6830-6839,6850-6859,6880-6889,6920-6959,7020-7029,7040-7049,7070-7079,7100-7109,7240-7249,7270-7279,7400-7409,7420-7429,7510-7519,9950-10499</Partition>

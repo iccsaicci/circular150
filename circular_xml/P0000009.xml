@@ -29,8 +29,8 @@
             <I PROPERTY="AdvectionForm" VALUE="Convective" />
             <I PROPERTY="Projection" VALUE="Galerkin" />
             <I PROPERTY="TimeIntegrationMethod" VALUE="IMEXOrder2" />
-            <!--I PROPERTY="GJPStabilisation" VALUE="SemiImplicit"/-->
-            <I PROPERTY="SpectralVanishingViscosity" VALUE="DGKernel" />
+            <I PROPERTY="GJPStabilisation" VALUE="SemiImplicit" />
+            <!--I PROPERTY="SpectralVanishingViscosity" VALUE="DGKernel" /-->
         </SOLVERINFO>
         <GLOBALSYSSOLNINFO>
             <V VAR="u,v,w">
@@ -57,7 +57,7 @@
             <!-- Number of step to print information -->
             <P>IO_CFLSteps = 100</P>
             <!-- Number of step to print CFL number  -->
-            <P>Re = 150</P>
+            <P>Re = 159</P>
             <P>Kinvis = 1/Re</P>
             <!--  
              U: Free stream veloticy magnitude
@@ -88,12 +88,31 @@
         </BOUNDARYCONDITIONS>
         <!-- Specify the initial condition -->
         <FUNCTION NAME="InitialConditions">
-            <E VAR="u" VALUE="U0" />
-            <E VAR="v" VALUE="V0" />
-            <E VAR="w" VALUE="W0" />
-            <E VAR="p" VALUE="0.0" />
+            <F VAR="u,v,w,p" FILE="circular_15.rst" />
         </FUNCTION>
     </CONDITIONS>
+    <COLLECTIONS>
+        <OPERATOR TYPE="BwdTrans">
+            <ELEMENT TYPE="R" ORDER="*" IMPTYPE="StdMat" />
+            <ELEMENT TYPE="H" ORDER="*" IMPTYPE="MatrixFree" />
+        </OPERATOR>
+        <OPERATOR TYPE="Helmholtz">
+            <ELEMENT TYPE="R" ORDER="*" IMPTYPE="MatrixFree" />
+            <ELEMENT TYPE="H" ORDER="*" IMPTYPE="MatrixFree" />
+        </OPERATOR>
+        <OPERATOR TYPE="IProductWRTBase">
+            <ELEMENT TYPE="R" ORDER="*" IMPTYPE="SumFac" />
+            <ELEMENT TYPE="H" ORDER="*" IMPTYPE="MatrixFree" />
+        </OPERATOR>
+        <OPERATOR TYPE="IProductWRTDerivBase">
+            <ELEMENT TYPE="R" ORDER="*" IMPTYPE="SumFac" />
+            <ELEMENT TYPE="H" ORDER="*" IMPTYPE="MatrixFree" />
+        </OPERATOR>
+        <OPERATOR TYPE="PhysDeriv">
+            <ELEMENT TYPE="R" ORDER="*" IMPTYPE="MatrixFree" />
+            <ELEMENT TYPE="H" ORDER="*" IMPTYPE="MatrixFree" />
+        </OPERATOR>
+    </COLLECTIONS>
     <Metadata>
         <Provenance>
             <GitBranch>refs/heads/master</GitBranch>
@@ -105,8 +124,8 @@
         <NekMeshCommandLine>circular.msh circular.xml</NekMeshCommandLine>
     </Metadata>
     <EXPANSIONS>
-        <E COMPOSITE="C[200,201]" NUMMODES="3" TYPE="MODIFIED" FIELDS="u,v,w" />
-        <E COMPOSITE="C[200,201]" NUMMODES="2" TYPE="MODIFIEDQUADPLUS1" FIELDS="p" />
+        <E COMPOSITE="C[200,201]" NUMMODES="5" TYPE="MODIFIED" FIELDS="u,v,w" />
+        <E COMPOSITE="C[200,201]" NUMMODES="4" TYPE="MODIFIEDQUADPLUS1" FIELDS="p" />
     </EXPANSIONS>
     <FILTERS>
         <FILTER TYPE="HistoryPoints">
